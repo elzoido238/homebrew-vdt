@@ -15,13 +15,15 @@ class Vdt < Formula
   option "with-preload", "Prepare the library to be pre-loaded in order to replace the calls to the default math lib at runtime"
 
   def install
-    ENV.deparallelize  # if your formula fails when building in parallel
+    # ENV.deparallelize  # if your formula fails when building in parallel
     args = []
     args << "-D DIAG=1" if build.with? "benchmarking"
     args << "-D BUILD_SHARED_LIBS=0" if build.with? "static_libs"
     args << "-D PRELOAD=1" if build.with? "preload"
 
-    system "cmake", args, ".", *std_cmake_args
+    system "cmake", args,
+           ".",
+           *std_cmake_args
     system "make"
     system "make", "install"
   end
