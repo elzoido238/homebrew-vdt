@@ -1,9 +1,9 @@
 class Vdt < Formula
   desc "The vdt mathematical library"
   homepage "https://github.com/dpiparo/vdt"
+  url "https://github.com/elzoido238/homebrew-vdt", :branch => "master", :using => :git
   license "LGPL-3-or-later"
   version "v0.4.3"
-  head "https://github.com/elzoido238/homebrew-vdt", :using => git, :branch => "master"
 
   depends_on "cmake"
 
